@@ -11,14 +11,13 @@ dayjs.locale(FR);
 const microServiceOptions = {
   transport: Transport.TCP,
   options: {
-    host: '172.21.0.3',
+    host: config.APP_HOST,
     port : config.APP_PORT
   }
 }
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice(AppModule, microServiceOptions)
-
   await app.listen();
 }
 bootstrap();
