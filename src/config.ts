@@ -5,7 +5,7 @@ export const config = {
     APP_ENV: process.env.APP_ENV || 'PREPROD',
     DB_HOST: process.env.DB_HOST || 'localhost',
     APP_PORT: process.env.APP_PORT || '8201',
-    APP_NAME: process.env.APP_NAME || 'boilerplateService',
+    APP_NAME: process.env.APP_NAME || 'clientService',
     APP_HOST: process.env.APP_HOST || '127.0.0.1',
     DB_PORT: process.env.DB_PORT || '64000',
     DB_NAME: process.env.DB_NAME || 'exeat',
