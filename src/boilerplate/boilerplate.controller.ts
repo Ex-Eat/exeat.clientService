@@ -9,12 +9,12 @@ export class BoilerplateController {
     constructor(private readonly boilerplateService: BoilerplateService) {}
 
     //@UseGuards(JwtGuard)
-    @MessagePattern('getItems')
+    @MessagePattern({cmd: 'getItems'})
     getAll(): Promise<Boilerplate[]> {
         return this.boilerplateService.findAll();
     }
 
-    @MessagePattern('postItem')
+    @MessagePattern({cmd: 'postItem'})
     postOne(): Promise<Boilerplate> {
         let bp:  Boilerplate = new CreateBoilerplateDto()
         bp.name = 'test'
