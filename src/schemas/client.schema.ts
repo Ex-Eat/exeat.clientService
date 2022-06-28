@@ -30,7 +30,7 @@ export class Client {
       address: String,
     },
   })
-  locations: [{lat: number, lng: number, address: string}];
+  locations: {lat: number, lng: number, address: string};
   
   @Prop()
   patronageCode: string;
