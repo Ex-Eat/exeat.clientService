@@ -4,12 +4,32 @@ import { ArrayMinSize, IsArray, IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsS
 export class CreateClientDto {
     @IsNumber()
     @IsNotEmpty()
-    public userId: number;
-
+    globalUserId: number;
+    
     @IsString()
     @IsNotEmpty()
-    public name: string;
-
+    firstName: string;
+    
     @IsString()
-    public address: string;
+    @IsNotEmpty()
+    lastName: string;
+    
+    @IsString()
+    @IsNotEmpty()
+    phoneNumber: string;
+    
+    @IsBoolean()
+    @IsNotEmpty()
+    termsOfUse: boolean;
+    
+    @IsNotEmpty
+    locations: [{lat: number, lng: number, address: string, name: string}];
+    
+    @IsString()
+    @IsOptional()
+    patronageCode: string;
+    
+    @IsBoolean()
+    @IsNotEmpty()
+    notification: boolean;
 }
