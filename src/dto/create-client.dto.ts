@@ -22,8 +22,8 @@ export class CreateClientDto {
     @IsNotEmpty()
     termsOfUse: boolean;
     
-    @IsNotEmpty
-    locations: [{lat: number, lng: number, address: string, name: string}];
+    @IsNotEmpty()
+    locations: {lat: number, lng: number, address: string};
     
     @IsString()
     @IsOptional()

@@ -12,12 +12,26 @@ export class ClientService {
         @InjectConnection() private connection: Connection
     ) {}
 
-    async create(CreateClientDto: CreateClientDto): Promise<Client> {
-        const createdClient = new this.clientModel(CreateClientDto);
-        return createdClient.save();
+    async getAll(): Promise<ClientDocument[]> {
+        return this.clientModel.find().exec();
     }
 
-    async findAll(): Promise<Client[]> {
-        return this.clientModel.find().exec();
+    async getOne(id: string): Promise<ClientDocument> {
+        return await this.clientModel.findById(id).exec();
+    }
+
+    async create(createClientDto: CreateClientDto): Promise<ClientDocument> {
+        const createdClient = new this.clientModel(createClientDto);
+        return await createdClient.save();
+    }
+
+    async update(id: string, client: Client): Promise<ClientDocument> {
+        return await this.clientModel.findByIdAndUpdate(id, client, {
+          new: true,
+        });
+    }
+
+    async delete(id: string): Promise<ClientDocument> {
+        return await this.clientModel.findByIdAndRemove(id);
     }
 }

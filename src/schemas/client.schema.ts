@@ -6,9 +6,6 @@ export type ClientDocument = Client & Document;
 @Schema({ timestamps: true })
 export class Client {
   @Prop()
-  _id: MongooseSchema.Types.ObjectId;
-
-  @Prop()
   globalUserId: number;
   
   @Prop()
@@ -29,6 +26,7 @@ export class Client {
       lng: Number,
       address: String,
     },
+    _id: false,
   })
   locations: {lat: number, lng: number, address: string};
   
