@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import {InjectConnection, InjectModel} from '@nestjs/mongoose';
 import { Client, ClientDocument } from '../schemas/client.schema';
 import { CreateClientDto } from '../dto/create-client.dto';
-
+import {UpdateClientDto} from "../dto/update-client.dto";
 
 @Injectable()
 export class ClientService {
