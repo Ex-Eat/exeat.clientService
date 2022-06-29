@@ -3,6 +3,7 @@ import {ClientService} from "./client.service";
 import {Client} from "../schemas/client.schema";
 import {CreateClientDto} from "../dto/create-client.dto";
 import {MessagePattern} from "@nestjs/microservices";
+import {UpdateClientDto} from "../dto/update-client.dto";
 
 @Controller('client')
 export class ClientController {
@@ -28,7 +29,7 @@ export class ClientController {
             throw new Error('You need to accept the terms of use.');
         }
 
-        
+
 
         client.globalUserId = data.client.globalUserId;
         client.firstName = data.client.firstName;
