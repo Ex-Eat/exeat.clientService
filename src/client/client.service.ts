@@ -20,6 +20,10 @@ export class ClientService {
         return await this.clientModel.findById(id).exec();
     }
 
+    async getOneGlobalId(id: number): Promise<ClientDocument> {
+        return await this.clientModel.findOne({ globalUserId: id }).exec();
+    }
+
     async create(createClientDto: CreateClientDto): Promise<ClientDocument> {
         const createdClient = new this.clientModel(createClientDto);
         return await createdClient.save();

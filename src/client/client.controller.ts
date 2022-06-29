@@ -19,6 +19,11 @@ export class ClientController {
         return this.clientService.getOne(data.id);
     }
 
+    @MessagePattern({ cmd: 'client/getOneByGlobalId' })
+    async getOneByGlobalId(id: number): Promise<any> {
+        return this.clientService.getOneGlobalId(id);
+    }
+
     @MessagePattern({cmd: 'client/create'})
     create(data): Promise<Client> {
         let client:  Client = new CreateClientDto()
