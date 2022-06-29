@@ -14,7 +14,7 @@ export class ClientController {
     }
 
     @MessagePattern({ cmd: 'client/getOne' })
-    async getOne(data: { id: string }): Promise<any> {
+    async getOne(data: { id: number }): Promise<any> {
         return this.clientService.getOne(data.id);
     }
 
@@ -22,32 +22,32 @@ export class ClientController {
     create(data): Promise<Client> {
         let client:  Client = new CreateClientDto()
 
-        if (data.client[0].termsOfUse) {
-            client.termsOfUse = data.client[0].termsOfUse;
+        if (data.client.termsOfUse) {
+            client.termsOfUse = data.client.termsOfUse;
         } else {
             throw new Error('You need to accept the terms of use.');
         }
 
         
 
-        client.globalUserId = data.client[0].globalUserId;
-        client.firstName = data.client[0].firstName;
-        client.lastName = data.client[0].lastName;
-        client.phoneNumber = data.client[0].phoneNumber;
-        client.locations = data.client[0].locations;
-        client.patronageCode = data.client[0].patronageCode;
-        client.notification = data.client[0].notification;
+        client.globalUserId = data.client.globalUserId;
+        client.firstName = data.client.firstName;
+        client.lastName = data.client.lastName;
+        client.phoneNumber = data.client.phoneNumber;
+        client.locations = data.client.locations;
+        client.patronageCode = data.client.patronageCode;
+        client.notification = data.client.notification;
 
         return this.clientService.create(client)
     }
 
     @MessagePattern({cmd: 'client/update'})
-    update(data: { id: string, client: any }): Promise<any> {
+    update(data: { id: number, client: any }): Promise<any> {
         return this.clientService.update(data.id, data.client);
     }
 
     @MessagePattern({cmd: 'client/delete'})
-    delete(data: { id: string }): Promise<any> {
+    delete(data: { id: number }): Promise<any> {
         return this.clientService.delete(data.id);
     }
 }

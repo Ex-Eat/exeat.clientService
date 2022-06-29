@@ -33,3 +33,19 @@ export class CreateClientDto {
     @IsNotEmpty()
     notification: boolean;
 }
+
+export class UpdateClientDto {
+    @IsString()
+    firstName: string;
+
+    @IsString()
+    lastName: string;
+
+    @IsString()
+    phoneNumber: string;
+    
+    locations: {lat: number, lng: number, address: string};
+    
+    @IsBoolean()
+    notification: boolean;
+}
